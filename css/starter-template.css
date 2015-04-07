@@ -16,3 +16,17 @@ body {
   font-family: 'Indie Flower', cursive;
   font-size: 2em;
 }
+
+#has-money {
+  margin: 0 4em 0 0;
+  float: right;
+  width: 25em;
+}
+
+.has-money {
+  margin: 4px;
+}
+
+#make-bet {
+  margin: 0 0 0 9em ;
+}

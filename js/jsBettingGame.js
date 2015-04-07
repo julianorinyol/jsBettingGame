@@ -10,52 +10,50 @@ player1 = {
   cash: 100
 };
 
-var keepPlaying = true
 var money = 100
 
-while (keepPlaying && money > 5) {
 
+$('#money').text("You have: $" + money);
+
+
+
+$('#make-bet').on('click', function() {
   var answer = Math.floor((Math.random() * 10) + 1);
   log("answer: " + answer);
 
-  var bet = parseInt(prompt("Watcha wanna bet?(between $5 and $10)" + player1.nickname));
+  var bet = parseInt($('#bet-input').val(),10);
+  var guess = parseInt($('#guess-input').val(),10);
 
   if (bet < 5 || bet > 10 || isNaN(bet)) {
-    alert("you big bozo, you gotta bet between 5 and 10 ")
-    continue;
+    $('#info-area')("you big bozo, you gotta bet between 5 and 10 ")
   }
 
   log("bet: " + bet)
-
-  var guess = parseInt(prompt("Yo" + player1.firstname + " " + player1.nickname + " " + player1.lastname + " " + " Guess a number between 1 and 10"));
   log("guess: " + guess)
 
-  // var game = {
-  //   answer: Math.floor((Math.random() * 10) + 1),
-  //   bet: parseInt(prompt("Watcha wanna bet?" + player1.nickname)),
-  //   guess: parseInt(prompt("Yo" + player1.firstname + " " + player1.nickname + " " + player1.lastname + " " + " Guess a number between 1 and 10"))
-   
-  // };
-
-  console.log("hey2");
-  log(guess == answer)
-  // log(bet)
-
-  if (guess == answer) {
-    log("you guessed: " + guess);
-    log("answer was: " + answer);
-    log( "you win: " + bet);
-    money += bet;
-  }else {
-    money -= bet;
-    if (money < 5) {
-      alert("Thanks for playing, you don't have enough to continue")
-      break;
+  var message = "";
+  if (guess) { 
+    switch(guess) {
+      case answer:
+        message = "you got it right!"
+        money += bet;
+        break;
+      case (answer + 1):
+      case (answer - 1):
+        message = "Close guess! the answer was: " + answer + "you don't lose any money.";
+        break;
+      default:
+        money -= bet
+        message = "bummer dude, the answer was : " + answer;
     }
   };
+  $('#money').text("You have: $" + money);
+  $('#info-area').text(message)
+  if (money < 5){
+  $('#has-money').attr('class', 'hidden');
+  }
 
-  keepPlaying = confirm("You have $" + money + "left, would you care to continue?")
-}
+})
 
 
 // });

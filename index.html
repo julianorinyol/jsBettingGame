@@ -55,23 +55,26 @@
       <div class="starter-template">
         <img id="cat-pic" src="images/gamble-cat.jpg" alt="Klematis">
         <p class="lead">Gamblecat wants to play.</p>
-        <p id="money">moneygoeshere</p>
+        <p id="money"></p>
+        <p id="info-area"></p>
       </div>
 
       <div>
-        <button type="button" id="start-game" class="btn btn-warning">start game</button>
+        <button type="button" id="restart" class="btn btn-warning hidden">restart</button>
         
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">$</span>
-          <input type="text" id="bet-input" class="form-control" placeholder="How much would you like to wager?" aria-describedby="basic-addon1">
-        </div>
-        
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">?</span>
-          <input type="text" id="guess-input" class="form-control" placeholder="Guess a number between 1 and 10" aria-describedby="basic-addon1">
-        </div>
+        <div id='has-money'>
+          <div class="input-group has-money">
+            <span class="input-group-addon" id="basic-addon1">$</span>
+            <input type="text" id="bet-input" class="form-control" placeholder="How much would you like to wager?" aria-describedby="basic-addon1">
+          </div>
+          
+          <div class="input-group has-money">
+            <span class="input-group-addon" id="basic-addon1">?</span>
+            <input type="text" id="guess-input" class="form-control" placeholder="Guess a number between 1 and 10" aria-describedby="basic-addon1">
+          </div>
 
-        <input class="btn btn-default" type="button" value="Input">
+          <input class="btn btn-default has-money" id="make-bet" type="button" value="meow">
+        </div>
       </div>
 
     </div>
